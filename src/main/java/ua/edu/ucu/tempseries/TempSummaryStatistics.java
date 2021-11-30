@@ -9,7 +9,8 @@ final class TempSummaryStatistics {
     final double devTemp;
     final double avgTemp;
 
-    TempSummaryStatistics(double minTemp, double maxTemp, double avgTemp, double devTemp) {
+    TempSummaryStatistics(
+            double minTemp, double maxTemp, double avgTemp, double devTemp) {
         this.minTemp = minTemp;
         this.maxTemp = maxTemp;
         this.devTemp = devTemp;
