@@ -1,11 +1,7 @@
 package ua.edu.ucu.tempseries;
-import java.lang.NullPointerException;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
-
-import static java.lang.Math.abs;
-import static java.lang.Math.sqrt;
 
 public class TemperatureSeriesAnalysis {
 
@@ -38,15 +34,14 @@ public class TemperatureSeriesAnalysis {
 
     public double average() {
         chekEmpty();
-        double sum_values = 0;
+        double sumValues = 0;
         int quantity = 0;
-        for (int i = 0; i < temperatureSeries.length; i++) {
-            sum_values += temperatureSeries[i];
+        for (double temperatureSer : temperatureSeries) {
+            sumValues += temperatureSer;
             quantity++;
 
         }
-        double result = sum_values / quantity;
-        return result;
+        return sumValues / quantity;
     }
 
     public double deviation() {
@@ -57,10 +52,10 @@ public class TemperatureSeriesAnalysis {
         if (len == 1) {
             return 0;
         }
-        for (int i = 0; i < len; i++) {
-            variance += Math.pow(temperatureSeries[i] - mean, 2)/(len - 1);
+        for (double temperatureSer : temperatureSeries) {
+            variance += Math.pow(temperatureSer - mean, 2) / (len - 1);
         }
-        return sqrt(variance);
+        return Math.sqrt(variance);
     }
 
     public double min() {
@@ -86,12 +81,12 @@ public class TemperatureSeriesAnalysis {
         chekEmpty();
         double closest = Double.MAX_VALUE;
         for (int i = 0; i < temperatureSeries.length; i++) {
-            if (abs(tempValue - closest) >
-                    abs(tempValue - temperatureSeries[i])) {
+            if (Math.abs(tempValue - closest) >
+                    Math.abs(tempValue - temperatureSeries[i])) {
                 closest = temperatureSeries[i];
             }
-            else if (abs(tempValue - closest) ==
-                    abs(tempValue - temperatureSeries[i])) {
+            else if (Math.abs(tempValue - closest) ==
+                    Math.abs(tempValue - temperatureSeries[i])) {
                 if (temperatureSeries[i] > closest) {
                     closest = temperatureSeries[i];
                 }
@@ -119,7 +114,7 @@ public class TemperatureSeriesAnalysis {
             if ((temperatureSeries[i] > fromValue) &&
                     (temperatureSeries[i] < toValue)) {
                 values[n] = temperatureSeries[i];
-                n ++;
+                n++;
             }
         }
         if (n == 0) {
