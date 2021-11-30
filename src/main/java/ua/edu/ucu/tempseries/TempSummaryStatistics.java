@@ -4,10 +4,10 @@ import lombok.Getter;
 
 @Getter
 final class TempSummaryStatistics {
-    final double minTemp;
-    final double maxTemp;
-    final double devTemp;
-    final double avgTemp;
+    private final double minTemp;
+    private final double maxTemp;
+    private final double devTemp;
+    private final double avgTemp;
 
     TempSummaryStatistics(
             double minTemp, double maxTemp, double avgTemp, double devTemp) {
