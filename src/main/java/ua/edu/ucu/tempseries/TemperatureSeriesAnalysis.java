@@ -23,11 +23,11 @@ public class TemperatureSeriesAnalysis {
 
     public void chekEmpty() {
         try {
-            if(temperatureSeries.length == 0) {
+            if (temperatureSeries.length == 0) {
                 throw new NullPointerException();
             }
         }
-        catch (Exception NullPointerException) {
+        catch (Exception exception) {
             throw new IllegalArgumentException();
         }
     }
@@ -81,12 +81,12 @@ public class TemperatureSeriesAnalysis {
         chekEmpty();
         double closest = Double.MAX_VALUE;
         for (int i = 0; i < temperatureSeries.length; i++) {
-            if (Math.abs(tempValue - closest) >
-                    Math.abs(tempValue - temperatureSeries[i])) {
+            if (Math.abs(tempValue - closest)
+                    > Math.abs(tempValue - temperatureSeries[i])) {
                 closest = temperatureSeries[i];
             }
-            else if (Math.abs(tempValue - closest) ==
-                    Math.abs(tempValue - temperatureSeries[i])) {
+            else if (Math.abs(tempValue - closest)
+                    == Math.abs(tempValue - temperatureSeries[i])) {
                 if (temperatureSeries[i] > closest) {
                     closest = temperatureSeries[i];
                 }
@@ -111,8 +111,8 @@ public class TemperatureSeriesAnalysis {
         int n = 0;
         double[] values = new double[len];
         for (int i = 0; i < len; i++) {
-            if ((temperatureSeries[i] > fromValue) &&
-                    (temperatureSeries[i] < toValue)) {
+            if ((temperatureSeries[i] > fromValue)
+                    && (temperatureSeries[i] < toValue)) {
                 values[n] = temperatureSeries[i];
                 n++;
             }
