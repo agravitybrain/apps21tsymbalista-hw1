@@ -27,7 +27,7 @@ public class TemperatureSeriesAnalysis {
                 throw new NullPointerException();
             }
         }
-        catch (Exception exception) {
+        catch (NullPointerException exception) {
             throw new IllegalArgumentException();
         }
     }
@@ -53,7 +53,8 @@ public class TemperatureSeriesAnalysis {
             return 0;
         }
         for (double temperatureSer : temperatureSeries) {
-            variance += Math.pow(temperatureSer - mean, 2) / (len - 1);
+            variance += (temperatureSer - mean)
+                    * (temperatureSer - mean) / (len - 1);
         }
         return Math.sqrt(variance);
     }
